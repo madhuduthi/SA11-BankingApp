@@ -33,12 +33,12 @@ pipeline {
             steps {
 				sh "docker build -t loksaieta/bankapp-eta-app:V${BUILD_NUMBER} ."
 				sh 'docker image list'
-				//sh "docker tag loksaieta/bankapp-eta-app:V${BUILD_NUMBER} loksaieta/bankapp-eta-app:latest"
+				sh "docker tag loksaieta/bankapp-eta-app:V${BUILD_NUMBER} loksaieta/bankapp-eta-app:latest"
             }
               post {
                 success {
                   sh "echo 'Send mail docker Build Success'"
-                  mail to:"lemail3@gmail.com", from: 'lemail3@gmail.com', subject:"App Image Created Please validate", body: "App Image Created Please validate - loksaieta/bankapp-eta-app:V${BUILD_NUMBER}"
+                  mail to:"lemail3@gmail.com", from: 'lemail3@gmail.com', subject:"App Image Created Please validate", body: "App Image Created Please validate - loksaieta/bankapp-eta-app:latest"
                 }
                 failure {
                   sh "echo 'Send mail docker Build failure'"
@@ -64,7 +64,7 @@ pipeline {
 		}
 		stage('Publish_to_Docker_Registry') {
 			steps {
-				sh "docker push loksaieta/bankapp-eta-app:V${BUILD_NUMBER}"
+				sh "docker push loksaieta/bankapp-eta-app:latest"
 			}
 		}
 		stage('Deploy to Kubernetes_Cluster') {
