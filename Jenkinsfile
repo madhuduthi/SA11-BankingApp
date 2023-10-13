@@ -25,7 +25,7 @@ pipeline {
 			  post {
 				failure {
 				  sh "echo 'Send mail on failure'"
-				  mail to:"lemail3@gmail.com", from: 'lemail3@gmail.com', subject:"FAILURE: ${currentBuild.fullDisplayName}", body: "Build failed."
+				  mail to:"loksaieta223@gmail.com", from: 'loksaieta223@gmail.com', subject:"FAILURE: ${currentBuild.fullDisplayName}", body: "Build failed."
 				}
 			  }
         }
@@ -38,11 +38,11 @@ pipeline {
               post {
                 success {
                   sh "echo 'Send mail docker Build Success'"
-                  mail to:"lemail3@gmail.com", from: 'lemail3@gmail.com', subject:"App Image Created Please validate", body: "App Image Created Please validate - loksaieta/bankapp-eta-app:latest"
+                  mail to:"loksaieta223@gmail.com", from: 'loksaieta223@gmail.com', subject:"App Image Created Please validate", body: "App Image Created Please validate - loksaieta/bankapp-eta-app:latest"
                 }
                 failure {
                   sh "echo 'Send mail docker Build failure'"
-                  mail to:"lemail3@gmail.com", from: 'lemail3@gmail.com', subject:"FAILURE: ${currentBuild.fullDisplayName}", body: "Image Build failed."
+                  mail to:"loksaieta223@gmail.com", from: 'loksaieta223@gmail.com', subject:"FAILURE: ${currentBuild.fullDisplayName}", body: "Image Build failed."
                 }
               }	
         }
