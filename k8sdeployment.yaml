@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: bankapp-eta-container
-        image: loksaieta/loksai-eta-app
+        image: loksaieta/bankapp-eta-app:latest
         ports:
         - containerPort: 8081
 ---
