@@ -5,7 +5,7 @@ metadata:
   labels:
     app: bankapp-eta-app1
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: bankapp-eta-app
